@@ -7,8 +7,8 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/golang-jwt/jwt"
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -54,7 +54,7 @@ func ValidateJWT(c *fiber.Ctx) interface{} {
 	}
 
 	db := c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection("users")
+	users := db.Database("dscinflux").Collection("users")
 
 	var result types.User
 
@@ -101,7 +101,7 @@ func GetUser(c *fiber.Ctx) interface{} {
 	}
 
 	db := c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection("users")
+	users := db.Database("dscinflux").Collection("users")
 
 	var result types.User
 
@@ -169,7 +169,7 @@ func GetUserID(c *fiber.Ctx) string {
 	}
 
 	db := c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection("users")
+	users := db.Database("dscinflux").Collection("users")
 
 	var result types.User
 
@@ -190,7 +190,7 @@ func GetDetailedUser(c *fiber.Ctx) types.User {
 	}
 
 	db := c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection("users")
+	users := db.Database("dscinflux").Collection("users")
 
 	var result types.User
 

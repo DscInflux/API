@@ -1,28 +1,31 @@
 package configuration
 
 import (
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/types"
 )
 
 func getConfig() types.Config {
 	return types.Config{
 		ApiVersion: 1,
 		Database: types.Database{
-			Url: "mongodb+srv://Admin:RanveerSoni11@topic.q8qcpfz.mongodb.net/discordinflux",
+			Url: "mongodb+srv://admin:c27Yt7yvcFZnll54@dscinflux.46fj1ar.mongodb.net/",
 		},
 		Web: types.Web{
-			Port:           "8080",
+			Port:           "7070",
 			ImageUploadKey: "d6b358da96fd1e63b3eadc17fbae7bdb",
-			ReturnUrl:      "https://beta.discordinflux.xyz",
+			//ReturnUrl: "http://localhost:8080/v1/auth/callback"
+			ReturnUrl:      "https://dscinflux.xyz",
 		},
 		Client: types.Client{
-			Id:       "925740376948609034",
-			Secret:   "vZZ5V5kki93ECcaB9RegynGA8Itua4vg",
-			Token:    "OTI1NzQwMzc2OTQ4NjA5MDM0.GKYieQ.WUhkXZZQ2cAIDkxaG0DhmnpwnByqxjIRycNEpc",
-			Callback: "https://beta.discordinflux.xyz/v1/auth/callback",
+			Id:       "1148743937599746141",
+			Secret:   "La1_WJKl0M9jGoePXrXhegYBK3O1Zyy_",
+			Token:    "MTE0ODc0MzkzNzU5OTc0NjE0MQ.GM1vMN.FKPXKgXZZmxIU3Af38L-G6ijZ4A8LbADko_x-g",
+			//Callback: "http://localhost:8008/v1/auth/callback"
+			Callback: "https://dscinflux.xyz/v1/auth/callback",
 		},
 		Collection: "entities",
-		APIUrl:     "https://beta.discordinflux.xyz/v1",
+		//APIUrl: "http://localhost:8080/v1/auth/callback"
+		APIUrl:     "https://dscinflux.xyz/v1/auth/callback",
 	}
 }
 

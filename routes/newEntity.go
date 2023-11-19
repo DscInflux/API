@@ -8,9 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/middlewares"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/types"
 )
 
 func NewEntity(c *fiber.Ctx) error {
@@ -32,7 +32,7 @@ func NewEntity(c *fiber.Ctx) error {
 	}
 
 	var db *mongo.Client = c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection(collectionData)
+	users := db.Database("dscinflux").Collection(collectionData)
 
 	body := make(map[string]interface{})
 	err := c.BodyParser(&body)

@@ -2,8 +2,8 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"go.topiclist.xyz/middlewares"
-	"go.topiclist.xyz/configuration"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/configuration"
 )
 
 func GetSocials(c *fiber.Ctx) error {

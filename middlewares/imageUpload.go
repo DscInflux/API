@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"strings"
 
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/types"
 )
 
 func UploadImage(name string, base64Image string) (*types.ImgbbResponse, error) {

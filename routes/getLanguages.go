@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"go.topiclist.xyz/middlewares"
+	"go.dscinflux.xyz/middlewares"
 )
 
 func GetLanguages(c *fiber.Ctx) error {

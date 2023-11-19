@@ -14,8 +14,8 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.topiclist.xyz/middlewares"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/types"
 	"golang.org/x/oauth2"
 )
 
@@ -94,7 +94,7 @@ func Callback(c *fiber.Ctx) error {
 	}
 
 	var db *mongo.Client = c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection("users")
+	users := db.Database("dscinflux").Collection("users")
 
 	var result types.User
 

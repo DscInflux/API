@@ -6,9 +6,9 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/middlewares"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -19,7 +19,7 @@ func GetRoles(c *fiber.Ctx) error {
 	var collectionData = DConfig.Collection
 	
 	var db *mongo.Client = c.Locals("db").(*mongo.Client)
-	roles := db.Database("discordinflux").Collection(collectionData)
+	roles := db.Database("dscinflux").Collection(collectionData)
 
 	var rolesList []types.Roles
 

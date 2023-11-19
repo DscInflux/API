@@ -1,4 +1,4 @@
-module go.topiclist.xyz
+module go.dscinflux.xyz
 
 go 1.18
 

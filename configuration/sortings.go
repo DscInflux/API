@@ -1,7 +1,7 @@
 package configuration
 
 import (
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/types"
 )
 
 func getSort() types.Sort {

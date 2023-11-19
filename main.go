@@ -5,9 +5,9 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/session"
 	"github.com/ravener/discord-oauth2"
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/database"
-	"go.topiclist.xyz/routes"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/database"
+	"go.dscinflux.xyz/routes"
 	"golang.org/x/oauth2"
 )
 
@@ -16,7 +16,7 @@ func main() {
 		Prefork:       true,
 		CaseSensitive: true,
 		StrictRouting: true,
-		ServerHeader:  "DiscordInflux",
+		ServerHeader:  "DscInflux",
 		AppName:       "A website used to list a users profile.",
 	})
 
@@ -30,17 +30,17 @@ func main() {
 		return c.JSON(fiber.Map{
 			"message": "Hello, World!",
 			"version": "1.0.0",
-			"author":  "RanveerSoni",
+			"author":  "DscInflux",
 			"links": fiber.Map{
-				"status":  "https://discordinflux.xyz/status",
-				"docs":    "https://docs.discordinflux.xyz/",
-				"support": "https://discord.gg/invite/Jad6TcdEet",
+				"status":  "https://dscinflux.instatus.com/",
+				"docs":    "https://docs.dscinflux.xyz/",
+				"support": "https://discord.gg/invite/RPCtG7Em8g",
 			},
 		})
 	})
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "https://beta.discordinflux.xyz",
+		AllowOrigins:     "https://dscinflux.xyz/",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowCredentials: true,

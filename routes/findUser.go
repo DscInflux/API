@@ -7,9 +7,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go.topiclist.xyz/configuration"
-	"go.topiclist.xyz/middlewares"
-	"go.topiclist.xyz/types"
+	"go.dscinflux.xyz/configuration"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/types"
 )
 
 func FindUser(id string, c *fiber.Ctx) error {
@@ -20,7 +20,7 @@ func FindUser(id string, c *fiber.Ctx) error {
 	account = middlewares.GetUserID(c)
 
 	var db *mongo.Client = c.Locals("db").(*mongo.Client)
-	users := db.Database("discordinflux").Collection(collectionData)
+	users := db.Database("dscinflux").Collection(collectionData)
 
 	var user types.Entity
 
