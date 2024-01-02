@@ -8,7 +8,7 @@ func getConfig() types.Config {
 	return types.Config{
 		ApiVersion: 1,
 		Database: types.Database{
-			Url: "mongodb+srv://admin:c27Yt7yvcFZnll54@dscinflux.46fj1ar.mongodb.net/",
+			Url: "mongodb+srv://admin:c27Yt7yvcFZnll54@dscinflux.46fj1ar.mongodb.net/dscinflux",
 		},
 		Web: types.Web{
 			Port:           "7070",
