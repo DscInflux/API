@@ -38,7 +38,7 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
 			"message": "Hello, World!",
-			"version": "1.0.0",
+			"version": "2.0.0",
 			"author":  "DscInflux",
 			"links": fiber.Map{
 				"status":  "https://dscinflux.instatus.com/",
@@ -49,7 +49,7 @@ func main() {
 	})
 
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "https://dscinflux.xyz/",
+		AllowOrigins:     "https://dscinflux.xyz,http://localhost:3000",
 		AllowMethods:     "GET,POST,PUT,DELETE,OPTIONS",
 		AllowHeaders:     "Origin, Content-Type, Accept, Authorization",
 		AllowCredentials: true,
