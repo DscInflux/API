@@ -1,9 +1,13 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/session"
+	"github.com/joho/godotenv"
 	"github.com/ravener/discord-oauth2"
 	"go.dscinflux.xyz/configuration"
 	"go.dscinflux.xyz/database"
@@ -12,6 +16,11 @@ import (
 )
 
 func main() {
+	// Load ENV
+	if err := godotenv.Load(); err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	//Fiber stuff
 	app := fiber.New(fiber.Config{
 		Prefork:       true,
 		CaseSensitive: true,
@@ -46,16 +55,16 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	db, err := database.Connect(config.Database.Url)
-
+	// Middleware: Database Connection
+	db, err := database.Connect(os.Getenv("DATABASE_URL"))
 	if err != nil {
-		panic(err)
-	} else {
-		app.Use(func(c *fiber.Ctx) error {
-			c.Locals("db", db)
-			return c.Next()
-		})
+		log.Fatal("Failed to connect to database:", err)
 	}
+	defer db.Disconnect(nil)
+	app.Use(func(c *fiber.Ctx) error {
+		c.Locals("db", db)
+		return c.Next()
+	})
 
 	v1 := app.Group("/v1")
 
@@ -71,7 +80,7 @@ func main() {
 		c.Locals("authConfig", &oauth2.Config{
 			RedirectURL:  config.Client.Callback,
 			ClientID:     config.Client.Id,
-			ClientSecret: config.Client.Secret,
+			ClientSecret: os.Getenv("ClientSecret"),
 			Scopes:       []string{discord.ScopeIdentify},
 			Endpoint:     discord.Endpoint,
 		})

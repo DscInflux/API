@@ -5,15 +5,14 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"strings"
 
-	"go.dscinflux.xyz/configuration"
 	"go.dscinflux.xyz/types"
 )
 
 func UploadImage(name string, base64Image string) (*types.ImgbbResponse, error) {
-	config := configuration.GetConfig()
-	resp, err := http.PostForm("https://api.imgbb.com/1/upload?key="+config.ImageUploadKey+"&name="+name,
+	resp, err := http.PostForm("https://api.imgbb.com/1/upload?key="+os.Getenv("ImageUploadKey")+"&name="+name,
 		url.Values(map[string][]string{
 			"image": {ParseBase64(base64Image)},
 		}),
