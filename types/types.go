@@ -38,6 +38,7 @@ type Entity struct {
 	Avatar     string      `json:"avatar"`
 	About      interface{} `json:"about"`
 	Occupation interface{} `json:"occupation"`
+	Staff      string      `json:"staff"`
 	Birthday   interface{} `json:"birthday"`
 	Location   interface{} `json:"location"`
 	Gender     interface{} `json:"gender"`

@@ -75,7 +75,7 @@ func main() {
 		c.Locals("session", sess)
 		return c.Next()
 	})
-
+	// Middleware: OAuth2 Configuration
 	v1.Use(func(c *fiber.Ctx) error {
 		c.Locals("authConfig", &oauth2.Config{
 			RedirectURL:  config.Client.Callback,
@@ -88,12 +88,13 @@ func main() {
 		return c.Next()
 	})
 
-	v1.Get("/socials", routes.GetSocials)
-	v1.Get("/sort", routes.GetSortings)
+	//Routes
 	v1.Get("/auth/login", routes.Login)
 	v1.Get("/auth/callback", routes.Callback)
 	v1.Get("/auth/logout", routes.Logout)
 	v1.Get("/auth/@me", routes.GetCurrentUser)
+	v1.Get("/socials", routes.GetSocials)
+	v1.Get("/sort", routes.GetSortings)
 	v1.Get("/entity/:id", routes.GetEntity)
 	v1.Get("/entities", routes.Entities)
 	v1.Get("/roles", routes.GetRoles)
@@ -103,6 +104,7 @@ func main() {
 	v1.Post("/entity/:id/like", routes.Like)
 	v1.Post("/entity/:id/unlike", routes.Unlike)
 	v1.Get("/random", routes.GetRandomEntity)
+	v1.Get("/staff", routes.GetStaffUsers)
 	v1.Get("/banners/:id", routes.GetBanner)
 	v1.Get("/avatars/:id", routes.GetAvatar)
 
