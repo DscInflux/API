@@ -26,7 +26,7 @@ func getSocials() types.Social {
 			Icon: types.Icon{
 				Label: "fa-twitter",
 				Value: "fab",
-				URL:   "https://cdn.topiclist.xyz/images/svg/x.com.svg",
+				URL:   "https://cdn.dscinflux.xyz/assets/svg/x.com.svg",
 			},
 			Enabled: true,
 		},
@@ -122,7 +122,7 @@ func getSocials() types.Social {
 			Icon: types.Icon{
 				Label: "fa-twitch",
 				Value: "fab",
-				URL:   "https://cdn.topiclist.xyz/logos/TwitchBlack.png",
+				URL:   "https://cdn.dscinflux.xyz/assets/png/TwitchBlack.png",
 			},
 			Enabled: true,
 		},
@@ -134,7 +134,7 @@ func getSocials() types.Social {
 			Icon: types.Icon{
 				Label: "fa-myanimelist",
 				Value: "fab",
-				URL:   "https://cdn.topiclist.xyz/logos/myanimelist.png",
+				URL:   "https://cdn.dscinflux.xyz/assets/png/myanimelist.png",
 			},
 			Enabled: true,
 		},

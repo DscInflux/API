@@ -115,7 +115,7 @@ func GetUser(c *fiber.Ctx) interface{} {
 	result.Token = "FAILED TO GET TOKEN"
 
 	result.AppID = nil
-	entities := db.Database("discordinflux").Collection("entities")
+	entities := db.Database("dscinflux").Collection("entities")
 
 	var entitiesResult types.Entity
 	entities.FindOne(context.Background(), bson.M{"discord.id": result.ID}).Decode(&entitiesResult)

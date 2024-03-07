@@ -17,7 +17,7 @@ func GetStaffUsers(c *fiber.Ctx) error {
 		})
 	}
 
-	collection := db.Database("discordinflux").Collection("entities")
+	collection := db.Database("dscinflux").Collection("entities")
 
 	// Define a filter to find documents where staff is true
 	filter := bson.M{"staff": "true"}

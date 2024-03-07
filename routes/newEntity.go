@@ -6,11 +6,11 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 	"go.dscinflux.xyz/configuration"
 	"go.dscinflux.xyz/middlewares"
 	"go.dscinflux.xyz/types"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func NewEntity(c *fiber.Ctx) error {
@@ -224,7 +224,7 @@ func NewEntity(c *fiber.Ctx) error {
 
 		if body["banner"] != nil && body["banner"] != "" {
 			if !strings.HasPrefix(body["banner"].(string), "data:image/") {
-				body["banner"] = "https://cdn.topiclist.xyz/images/jpg/Banner_DiscordInflux.jpg"
+				body["banner"] = "https://cdn.dscinflux.xyz/assets/jpg/influxbanner.jpg"
 			} else {
 				bannerId := middlewares.GenerateID()
 				var imageName string
@@ -241,11 +241,11 @@ func NewEntity(c *fiber.Ctx) error {
 				if err == nil {
 					body["banner"] = image.Data.DisplayURL
 				} else {
-					body["banner"] = "https://cdn.topiclist.xyz/images/jpg/Banner_DiscordInflux.jpg"
+					body["banner"] = "https://cdn.dscinflux.xyz/assets/jpg/influxbanner.jpg"
 				}
 			}
 		} else {
-			body["banner"] = "https://cdn.topiclist.xyz/images/jpg/Banner_DiscordInflux.jpg"
+			body["banner"] = "https://cdn.dscinflux.xyz/assets/jpg/influxbanner.jpg"
 		}
 
 		if body["avatar"] != nil && body["avatar"] != "" {

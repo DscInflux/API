@@ -11,11 +11,11 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/session"
+	"go.dscinflux.xyz/middlewares"
+	"go.dscinflux.xyz/types"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.dscinflux.xyz/middlewares"
-	"go.dscinflux.xyz/types"
 	"golang.org/x/oauth2"
 )
 
@@ -126,7 +126,7 @@ func Callback(c *fiber.Ctx) error {
 		"loggedAt":          time.Now(),
 	}}, opts)
 
-	entities := db.Database("discordinflux").Collection("entities")
+	entities := db.Database("dscinflux").Collection("entities")
 	var entity types.Entity
 
 	entities.FindOne(context.Background(), bson.M{"discord.id": user.ID}).Decode(&entity)
