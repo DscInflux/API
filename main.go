@@ -105,6 +105,7 @@ func main() {
 	v1.Post("/entity/:id/unlike", routes.Unlike)
 	v1.Get("/random", routes.GetRandomEntity)
 	v1.Get("/staff", routes.GetStaffUsers)
+	v1.Get("/partner", routes.GetPartners)
 	v1.Get("/banners/:id", routes.GetBanner)
 	v1.Get("/avatars/:id", routes.GetAvatar)
 

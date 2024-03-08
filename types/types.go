@@ -26,6 +26,21 @@ type User struct {
 	DisplayName      string      `json:"display_name"`
 }
 
+type Partner struct {
+	Title      string `json:"title"`
+	Logo       string `json:"logo"`
+	Banner     string `json:"banner"`
+	OwnerName  string `json:"ownername"`
+	OwnerID    string `json:"ownerid"`
+	Desc       string `json:"desc"`
+	Link1      string `json:"link1"`
+	Link1Title string `json:"link1title"`
+	Link1Icon  string `json:"link1icon"`
+	Link2      string `json:"link2"`
+	Link2Title string `json:"link2title"`
+	Link2Icon  string `json:"link2icon"`
+}
+
 type Entity struct {
 	ID      string `json:"id"`
 	Discord struct {
