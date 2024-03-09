@@ -27,7 +27,7 @@ func getConfig() types.Config {
 		},
 		Collection: "entities",
 		//APIUrl: "http://localhost:8080/v1/auth/callback"
-		APIUrl: "https://api.dscinflux.xyz/",
+		APIUrl: "https://api.dscinflux.xyz",
 	}
 }
 
