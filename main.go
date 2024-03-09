@@ -66,17 +66,15 @@ func main() {
 		return c.Next()
 	})
 
-	v1 := app.Group("/v1")
-
 	store := session.New()
 
-	v1.Use(func(c *fiber.Ctx) error {
+	app.Use(func(c *fiber.Ctx) error {
 		sess, _ := store.Get(c)
 		c.Locals("session", sess)
 		return c.Next()
 	})
 	// Middleware: OAuth2 Configuration
-	v1.Use(func(c *fiber.Ctx) error {
+	app.Use(func(c *fiber.Ctx) error {
 		c.Locals("authConfig", &oauth2.Config{
 			RedirectURL:  config.Client.Callback,
 			ClientID:     config.Client.Id,
@@ -89,25 +87,25 @@ func main() {
 	})
 
 	//Routes
-	v1.Get("/auth/login", routes.Login)
-	v1.Get("/auth/callback", routes.Callback)
-	v1.Get("/auth/logout", routes.Logout)
-	v1.Get("/auth/@me", routes.GetCurrentUser)
-	v1.Get("/socials", routes.GetSocials)
-	v1.Get("/sort", routes.GetSortings)
-	v1.Get("/entity/:id", routes.GetEntity)
-	v1.Get("/entities", routes.Entities)
-	v1.Get("/roles", routes.GetRoles)
-	v1.Get("/skills", routes.GetSkills)
-	v1.Get("/languages", routes.GetLanguages)
-	v1.Post("/entity", routes.NewEntity)
-	v1.Post("/entity/:id/like", routes.Like)
-	v1.Post("/entity/:id/unlike", routes.Unlike)
-	v1.Get("/random", routes.GetRandomEntity)
-	v1.Get("/staff", routes.GetStaffUsers)
-	v1.Get("/partner", routes.GetPartners)
-	v1.Get("/banners/:id", routes.GetBanner)
-	v1.Get("/avatars/:id", routes.GetAvatar)
+	app.Get("/v1/auth/login", routes.Login)
+	app.Get("/v1/auth/callback", routes.Callback)
+	app.Get("/v1/auth/logout", routes.Logout)
+	app.Get("/v1/auth/@me", routes.GetCurrentUser)
+	app.Get("/v1/socials", routes.GetSocials)
+	app.Get("/v1/sort", routes.GetSortings)
+	app.Get("/v1/entity/:id", routes.GetEntity)
+	app.Get("/v1/entities", routes.Entities)
+	app.Get("/v1/roles", routes.GetRoles)
+	app.Get("/v1/skills", routes.GetSkills)
+	app.Get("/v1/languages", routes.GetLanguages)
+	app.Post("/v1/entity", routes.NewEntity)
+	app.Post("/v1/entity/:id/like", routes.Like)
+	app.Post("/v1/entity/:id/unlike", routes.Unlike)
+	app.Get("/v1/random", routes.GetRandomEntity)
+	app.Get("/staff", routes.GetStaffUsers)
+	app.Get("/partner", routes.GetPartners)
+	app.Get("/banners/:id", routes.GetBanner)
+	app.Get("/avatars/:id", routes.GetAvatar)
 
 	app.Listen(":" + config.Web.Port)
 }

@@ -80,7 +80,7 @@ func NewEntity(c *fiber.Ctx) error {
 				image, err := middlewares.UploadImage(imageName, body["banner"].(string))
 
 				if err == nil {
-					body["banner"] = image.Data.DisplayURL
+					body["avatar"] = image.Data.URL
 				} else {
 					body["banner"] = thisUser["banner"]
 				}
@@ -106,7 +106,7 @@ func NewEntity(c *fiber.Ctx) error {
 				image, err := middlewares.UploadImage(imageName, body["avatar"].(string))
 
 				if err == nil {
-					body["avatar"] = image.Data.DisplayURL
+					body["avatar"] = image.Data.URL
 				} else {
 					body["avatar"] = thisUser["avatar"]
 				}
@@ -239,7 +239,7 @@ func NewEntity(c *fiber.Ctx) error {
 				image, err := middlewares.UploadImage(imageName, body["banner"].(string))
 
 				if err == nil {
-					body["banner"] = image.Data.DisplayURL
+					body["avatar"] = image.Data.URL
 				} else {
 					body["banner"] = "https://cdn.dscinflux.xyz/assets/jpg/influxbanner.jpg"
 				}
@@ -265,7 +265,7 @@ func NewEntity(c *fiber.Ctx) error {
 				image, err := middlewares.UploadImage(imageName, body["avatar"].(string))
 
 				if err == nil {
-					body["avatar"] = image.Data.DisplayURL
+					body["avatar"] = image.Data.URL
 				} else {
 					body["avatar"] = "https://cdn.discordapp.com/avatars/" + account + "/" + detailedAccount.Avatar + ".png"
 				}
