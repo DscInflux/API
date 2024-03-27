@@ -6,12 +6,12 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"go.dscinflux.xyz/configuration"
 	"go.dscinflux.xyz/middlewares"
 	"go.dscinflux.xyz/types"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 func Entities(c *fiber.Ctx) error {
@@ -142,21 +142,23 @@ func Entities(c *fiber.Ctx) error {
 		cursor.Decode(&user)
 
 		data := fiber.Map{
-			"url":        user.URL,
-			"id":         user.ID,
-			"discord":    user.Discord,
-			"about":      user.About,
-			"language":   user.Language,
-			"occupation": user.Occupation,
-			"roles":      user.Roles,
-			"likes":      middlewares.Count(user.Likes),
-			"createdAt":  user.CreatedAt,
-			"updatedAt":  user.UpdatedAt,
-			"isLiked":    user.IsLiked,
-			"isSelf":     user.IsSelf,
-			"views":      middlewares.Count(user.Views),
-			"isPremium":  user.Premium,
-			"isVerified": user.Verified,
+			"url":         user.URL,
+			"id":          user.ID,
+			"discord":     user.Discord,
+			"about":       user.About,
+			"language":    user.Language,
+			"occupation":  user.Occupation,
+			"roles":       user.Roles,
+			"likes":       middlewares.Count(user.Likes),
+			"createdAt":   user.CreatedAt,
+			"updatedAt":   user.UpdatedAt,
+			"isLiked":     user.IsLiked,
+			"isSelf":      user.IsSelf,
+			"views":       middlewares.Count(user.Views),
+			"isPremium":   user.Premium,
+			"isVerified":  user.Verified,
+			"isDeveloper": user.Developer,
+			"isPartner":   user.Partner,
 		}
 
 		if user.Banner != "" {

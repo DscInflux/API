@@ -33,8 +33,8 @@ func UploadImage(name string, base64Image string) (*CordxResponse, error) {
 
 	// Set request headers
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
-	req.Header.Set("secret", os.Getenv("CordxSecret"))
 	req.Header.Set("userid", os.Getenv("CordxUserID"))
+	req.Header.Set("secret", os.Getenv("CordxSecret"))
 
 	// Send the request
 	resp, err := client.Do(req)
