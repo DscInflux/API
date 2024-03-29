@@ -61,6 +61,8 @@ type Entity struct {
 	Language   string      `json:"language"`
 	Website    interface{} `json:"website"`
 	Like       int         `json:"like"`
+	Developer  bool        `bson:"isDeveloper"`
+	Partner    bool        `bson:"isPartner"`
 	Email      interface{} `json:"email"`
 	Views      []string    `json:"views"`
 	Premium    bool        `json:"isPremium" bson:"isPremium"`

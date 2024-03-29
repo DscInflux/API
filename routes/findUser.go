@@ -5,11 +5,11 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 	"go.dscinflux.xyz/configuration"
 	"go.dscinflux.xyz/middlewares"
 	"go.dscinflux.xyz/types"
+	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/mongo"
 )
 
 func FindUser(id string, c *fiber.Ctx) error {
@@ -41,23 +41,25 @@ func FindUser(id string, c *fiber.Ctx) error {
 	}
 
 	data := fiber.Map{
-		"url":        user.URL,
-		"id":         user.ID,
-		"discord":    user.Discord,
-		"about":      user.About,
-		"socials":    user.Socials,
-		"occupation": user.Occupation,
-		"skills":     user.Skills,
-		"likes":      middlewares.Count(user.Likes),
-		"createdAt":  user.CreatedAt,
-		"updatedAt":  user.UpdatedAt,
-		"isLiked":    user.IsLiked,
-		"isSelf":     user.IsSelf,
-		"views":      middlewares.Count(user.Views),
-		"isPremium":  user.Premium,
-		"isVerified": user.Verified,
-		"language":   user.Language,
-		"roles":      user.Roles,
+		"url":         user.URL,
+		"id":          user.ID,
+		"discord":     user.Discord,
+		"about":       user.About,
+		"socials":     user.Socials,
+		"occupation":  user.Occupation,
+		"skills":      user.Skills,
+		"likes":       middlewares.Count(user.Likes),
+		"createdAt":   user.CreatedAt,
+		"updatedAt":   user.UpdatedAt,
+		"isLiked":     user.IsLiked,
+		"isSelf":      user.IsSelf,
+		"views":       middlewares.Count(user.Views),
+		"isPremium":   user.Premium,
+		"isVerified":  user.Verified,
+		"isDeveloper": user.Developer,
+		"isPartner":   user.Partner,
+		"language":    user.Language,
+		"roles":       user.Roles,
 	}
 
 	_, err = users.UpdateOne(context.Background(), bson.M{"url": id}, bson.M{"$set": bson.M{"views": user.Views}})
