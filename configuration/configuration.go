@@ -13,7 +13,7 @@ func getConfig() types.Config {
 			Url: os.Getenv("DATABASE_URL"),
 		},
 		Web: types.Web{
-			Port:           "7070",
+			Port:           "3000",
 			ImageUploadKey: os.Getenv("ImageUploadKey"),
 			//ReturnUrl: "http://localhost:8080/v1/auth/callback"
 			ReturnUrl: "https://dscinflux.xyz",

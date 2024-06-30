@@ -106,6 +106,10 @@ func main() {
 	app.Get("/partner", routes.GetPartners)
 	app.Get("/banners/:id", routes.GetBanner)
 	app.Get("/avatars/:id", routes.GetAvatar)
+	app.Get("/verifiednum", routes.VerifiedNum)
+	app.Get("/staffnum", routes.StaffNum)
+	app.Get("/usernum", routes.UserNum)
+	app.Get("/profilenum", routes.ProfileNum)
 
 	app.Listen(":" + config.Web.Port)
 }
