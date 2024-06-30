@@ -22,7 +22,7 @@ func main() {
 	}
 	//Fiber stuff
 	app := fiber.New(fiber.Config{
-		Prefork:       true,
+		Prefork:       false,
 		CaseSensitive: true,
 		StrictRouting: true,
 		ServerHeader:  "DscInflux",
